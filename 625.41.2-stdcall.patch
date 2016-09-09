@@ -1,0 +1,73 @@
+--- origsrc/mDNSResponder-625.41.2/mDNSWindows/DLL/Makefile	2016-09-08 19:05:18.574346900 -0500
++++ src/mDNSResponder-625.41.2/mDNSWindows/DLL/Makefile	2016-09-09 07:55:04.360190400 -0500
+@@ -34,7 +34,7 @@ libdns_sd: setup $(BUILDDIR)/dnssd.dll
+ 	@echo "Client library done"
+ 
+ $(BUILDDIR)/dnssd.dll: $(OBJS) dnssd.def
+-	$(CC) -shared -Wl,--out-implib,$(BUILDDIR)/libdns_sd.dll.a -o $@ $^ $(LIBS)
++	$(CC) -shared -Wl,--add-stdcall-alias,--out-implib,$(BUILDDIR)/libdns_sd.dll.a -o $@ $^ $(LIBS)
+ 
+ clean:
+ 	rm -f $(BUILDDIR)/dnssd.dll $(OBJS)
+--- origsrc/mDNSResponder-625.41.2/mDNSWindows/DLL/dnssd.def	2016-03-11 03:47:07.000000000 -0600
++++ src/mDNSResponder-625.41.2/mDNSWindows/DLL/dnssd.def	2016-09-09 11:52:49.297187200 -0500
+@@ -18,31 +18,31 @@
+ LIBRARY		dnssd
+ 
+ EXPORTS
+-	DNSServiceRefSockFD
+-	DNSServiceProcessResult
+-	DNSServiceRefDeallocate
+-	DNSServiceEnumerateDomains
+-	DNSServiceRegister
+-	DNSServiceAddRecord
+-	DNSServiceUpdateRecord
+-	DNSServiceRemoveRecord
+-	DNSServiceBrowse
+-	DNSServiceResolve
+-	DNSServiceConstructFullName
+-	DNSServiceCreateConnection
+-	DNSServiceRegisterRecord
+-	DNSServiceQueryRecord
+-	DNSServiceReconfirmRecord
+-	DNSServiceNATPortMappingCreate
+-	DNSServiceGetAddrInfo
+-	DNSServiceGetProperty
+-	TXTRecordCreate
+-	TXTRecordDeallocate
+-	TXTRecordSetValue
+-	TXTRecordRemoveValue
+-	TXTRecordContainsKey
+-	TXTRecordGetCount
+-	TXTRecordGetLength
+-	TXTRecordGetBytesPtr
+-	TXTRecordGetValuePtr
+-	TXTRecordGetItemAtIndex
++	DNSServiceRefSockFD@4
++	DNSServiceProcessResult@4
++	DNSServiceRefDeallocate@4
++	DNSServiceEnumerateDomains@20
++	DNSServiceRegister@48
++	DNSServiceAddRecord@28
++	DNSServiceUpdateRecord@24
++	DNSServiceRemoveRecord@12
++	DNSServiceBrowse@28
++	DNSServiceResolve@32
++	DNSServiceConstructFullName@16
++	DNSServiceCreateConnection@4
++	DNSServiceRegisterRecord@48
++	DNSServiceQueryRecord@32
++	DNSServiceReconfirmRecord@28
++	DNSServiceNATPortMappingCreate@36
++	DNSServiceGetAddrInfo@28
++	DNSServiceGetProperty@12
++	TXTRecordCreate@12
++	TXTRecordDeallocate@4
++	TXTRecordSetValue@16
++	TXTRecordRemoveValue@8
++	TXTRecordContainsKey@12
++	TXTRecordGetCount@8
++	TXTRecordGetLength@4
++	TXTRecordGetBytesPtr@4
++	TXTRecordGetValuePtr@16
++	TXTRecordGetItemAtIndex@28
