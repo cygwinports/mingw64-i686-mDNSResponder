@@ -2,7 +2,7 @@ CROSS_HOST="i686-w64-mingw32"
 inherit cross
 
 NAME="mingw64-i686-mDNSResponder"
-VERSION=765.30.11
+VERSION=765.50.9
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="Bonjour Zeroconf client library for Win32 toolchain"
